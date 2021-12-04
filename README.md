@@ -24,7 +24,7 @@ docker create --name onec albus/onec:bin
 docker cp ./opt/1C/8.3/x84_64 onec:/opt/onec/8/3/17/3456/
 ```
 
-Зафиксируем слой в образе при этом нужно создать том подключения для монтирования данного дистрибутива
+Зафиксируем слой в образе при этом нужно создать том подключения (--change) для монтирования данного дистрибутива
 ```sh
 docker commit --change "VOLUME /opt/onec/8/3/17/3456/x86_64" --message "add 8.3.17.3456" onec albus/onec:bin
 ```
