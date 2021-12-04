@@ -31,5 +31,5 @@ docker commit --change "VOLUME /opt/onec/8/3/17/3456/x86_64" --message "add 8.3.
 
 Теперь образ можно поместить в репозиторий, а контейнер использовать как общие тома
 ```sh
-docker run -it --rm --volumes-from onec ubuntu bash
+docker run -it --rm --volumes-from onec ubuntu bash ls -lha /opt/onec/8/3/17/3456/x86_64
 ```
