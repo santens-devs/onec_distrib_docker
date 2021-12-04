@@ -47,3 +47,12 @@ docker create --name onec --network null albus/onec:bin
 # Теперь тома созданы и мы можем их смонтировать автоматически
 docker run -it --rm --volumes-from onec ubuntu ls -lha /opt/onec/8/3/17/3456/x86_64
 ```
+
+
+# Пример приложения Configuration Repository Server
+
+```shell
+docker run --name crs --hostname crs --domainname lgss.local \
+--volumes-from onec --volumes-from onec_8.3.17.2306 \
+--rm -it ubuntu env LC_ALL=C /opt/onec/platform/current/crserver
+```
