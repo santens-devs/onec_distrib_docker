@@ -42,7 +42,7 @@ docker run -it --rm --network none --volumes-from onec ubuntu ls -lha /opt/onec/
 docker pull albus/onec:bin
 
 # Создадим контейнер с дистрибутивами (операция долгая т.к. дистрибутивы будут копироваться в тома)
-docker create --name onec --network none albus/onec:bin
+docker create --name onec --network null albus/onec:bin
 
 # Теперь тома созданы и мы можем их смонтировать автоматически
 docker run -it --rm --volumes-from onec ubuntu ls -lha /opt/onec/8/3/17/3456/x86_64
