@@ -33,3 +33,10 @@ docker commit --change "VOLUME /opt/onec/8/3/17/3456/x86_64" --message "add 8.3.
 ```sh
 docker run -it --rm --volumes-from onec ubuntu ls -lha /opt/onec/8/3/17/3456/x86_64
 ```
+
+# Использование контейнера
+
+```sh
+docker create --name onec albus/onec:bin
+docker run -it --rm --volumes-from onec ubuntu ls -lha /opt/onec/8/3/17/3456/x86_64
+```
