@@ -53,6 +53,6 @@ docker run -it --rm --volumes-from onec ubuntu ls -lha /opt/onec/8/3/17/3456/x86
 
 ```shell
 docker run --name crs --hostname crs --domainname lgss.local \
---volumes-from onec --volumes-from onec_8.3.17.2306 \
+--volumes-from onec:ro --volumes-from onec_8.3.17.2306:ro \
 --workdir /opt/onec/platform/current --rm -it ubuntu env LC_ALL=C ./crserver
 ```
