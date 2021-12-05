@@ -29,10 +29,9 @@ docker cp ./opt/1C/8.3/x84_64 onec:/opt/onec/8/3/17/3456/
 docker commit --change "VOLUME /opt/onec/8/3/17/3456/x86_64" --message "add 8.3.17.3456" onec albus/onec:bin
 ```
 
-Теперь образ можно поместить в репозиторий, а контейнер использовать как общие тома
+Теперь образ можно поместить в репозиторий
 ```sh
 docker push --disable-content-trust=true albus/onec:bin
-docker run -it --rm --network null --volumes-from onec ubuntu ls -lha /opt/onec/8/3/17/3456/x86_64
 ```
 
 # Использование контейнера
@@ -42,10 +41,10 @@ docker run -it --rm --network null --volumes-from onec ubuntu ls -lha /opt/onec/
 docker pull albus/onec:bin
 
 # Создадим контейнер с дистрибутивами (операция долгая т.к. дистрибутивы будут копироваться в тома)
-docker create --name onec --network null albus/onec:bin
+docker create --name onec --network none albus/onec:bin
 
 # Теперь тома созданы и мы можем их смонтировать автоматически
-docker run -it --rm --volumes-from onec ubuntu ls -lha /opt/onec/8/3/17/3456/x86_64
+docker run -it --rm --volumes-from onec:ro ubuntu ls -lha /opt/onec/8/3/17/3456/x86_64
 ```
 
 
