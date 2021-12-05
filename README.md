@@ -53,6 +53,9 @@ docker run -it --rm --volumes-from onec ubuntu ls -lha /opt/onec/8/3/17/3456/x86
 
 ```shell
 docker run --name crs --hostname crs --domainname lgss.local \
---volumes-from onec:ro --volumes-from onec_8.3.17.2306:ro \
---workdir /opt/onec/platform/current --rm -it ubuntu env LC_ALL=C ./crserver
+--volumes-from onec_8.3.17.2306:ro \
+--publish 1542:1542/tcp --publish 1542:1542/udp --publish 21542:22/tcp \
+--ulimit nofile=262144:262144 --restart always --detach \
+--volume /usr/share/ros/oem/crs/1542:/shares/crs/1542:consistent \
+albus/baseimage:master /sbin/my_init -- env PATH=/opt/onec/platform/current:$PATH LC_ALL=C crserver -port 1542 -d /shares/crs/1542
 ```
