@@ -2,7 +2,7 @@
 
 ## Создадим контейнер с дистрибутивами 
 ```shell
-docker create --name onec --net null albus/onec:bin
+docker create --name onec --net none albus/onec:bin
 ```
 ## Добавим ссылку на нужный дистрибутив
 ```shell
