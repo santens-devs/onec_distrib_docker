@@ -6,7 +6,7 @@ docker create --name onec --net null albus/onec:bin
 ```
 ## Добавим ссылку на нужный дистрибутив
 ```shell
-docker create --name onec_8.3.17.2306 --volumes-from onec:ro --net null albus/onec:8.3.17.2306
+docker create --name onec_8.3.17.2306 --volumes-from onec:ro --net none albus/onec:8.3.17.2306
 ```
 
 ## Можно запускать в работу
